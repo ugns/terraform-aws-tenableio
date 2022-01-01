@@ -1,9 +1,9 @@
-module "byol_sg" {
+module "byol_security_group" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "4.7.0"
   count   = var.license_type == "byol" ? 1 : 0
 
-  name        = format("%s %s", coalesce(var.nessus_scanner_name, var.name), upper(var.license_type))
+  name        = format("%s %s", coalesce(var.nessus_scanner_name, var.name), local.license_type[var.license_type])
   description = format("The Security Group to be applied to scanner within %s", var.vpc_id)
   vpc_id      = var.vpc_id
 
@@ -21,19 +21,19 @@ module "byol_sg" {
   ]
 }
 
-module "preauth_sg" {
+module "preauth_security_group" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "4.7.0"
   count   = var.license_type == "preauth" ? 1 : 0
 
-  name        = format("%s %s", coalesce(var.nessus_scanner_name, var.name), upper(var.license_type))
+  name        = format("%s %s", coalesce(var.nessus_scanner_name, var.name), local.license_type[var.license_type])
   description = format("The Security Group to be applied to scanner within %s", var.vpc_id)
   vpc_id      = var.vpc_id
 
   egress_rules = ["all-all"]
 }
 
-module "target_sg" {
+module "preauth_target_security_group" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "4.7.0"
   count   = var.license_type == "preauth" ? 1 : 0
@@ -63,5 +63,5 @@ module "target_sg" {
 }
 
 locals {
-  security_group = var.license_type == "byol" ? module.byol_sg[0] : module.preauth_sg[0]
+  security_group = var.license_type == "byol" ? module.byol_security_group[0] : module.preauth_security_group[0]
 }

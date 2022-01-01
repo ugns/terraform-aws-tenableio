@@ -23,12 +23,12 @@ variable "product_code" {
 }
 
 variable "vpc_id" {
-  description = "The name of the VPC that Nessus will be deployed to"
+  description = "The ID of the VPC that Nessus will be deployed to"
   type        = string
 }
 
 variable "instance_type" {
-  description = "The type of instance to start"
+  description = "The instance type for scanner. Must meet documented hardware requirements"
   type        = string
   default     = "m5.xlarge"
 }
@@ -54,11 +54,11 @@ variable "termnation_protection" {
 variable "public_ip_address" {
   description = "Enable public IP address on scanner instance"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "key_name" {
-  description = "The name of the key pair to use"
+  description = "The name of the key pair to use, if required for BYOL scanner."
   type        = string
   default     = null
 }
@@ -71,7 +71,7 @@ variable "ingress_cidr_blocks" {
 
 variable "subnet_ids" {
   description = "The Subnet IDs"
-  type        = list(any)
+  type        = list(string)
 }
 
 variable "linking_key" {
@@ -94,6 +94,6 @@ variable "nessus_proxy" {
 
 variable "nessus_proxy_port" {
   description = "Port used to connect to proxy, if required."
-  type        = string
+  type        = number
   default     = null
 }

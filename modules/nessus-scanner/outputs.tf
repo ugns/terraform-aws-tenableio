@@ -5,5 +5,5 @@ output "nessus_scanner_security_group" {
 
 output "nessus_target_security_group" {
   description = "Nessus scan target security group"
-  value       = var.license_type == "preauth" ? module.target_sg[0].security_group_id : null
+  value       = var.license_type == "preauth" ? module.preauth_target_security_group[0].security_group_id : null
 }

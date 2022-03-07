@@ -20,7 +20,7 @@ module "nessus_scanner" {
   subnet_id                   = each.key
   user_data                   = data.template_file.user_data.rendered
   associate_public_ip_address = var.public_ip_address
-  disable_api_termination     = var.termnation_protection
+  disable_api_termination     = var.termination_protection
 }
 
 resource "aws_iam_instance_profile" "this" {

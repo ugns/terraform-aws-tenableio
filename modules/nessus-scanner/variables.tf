@@ -45,7 +45,7 @@ variable "detailed_monitoring" {
   default     = true
 }
 
-variable "termnation_protection" {
+variable "termination_protection" {
   description = "Enable termination protection on scanner instance"
   type        = bool
   default     = true

@@ -9,11 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: "Handle common commands"
-        uses: cloudposse/actions/github/slash-command-dispatch@0.22.0
+        uses: ugns/actions/github/slash-command-dispatch@1.0.0
         with:
           token: ${{ secrets.PUBLIC_REPO_ACCESS_TOKEN }}
           reaction-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: cloudposse/actions
+          repository: ugns/actions
           commands: rebuild-readme, terraform-fmt
           permission: triage
           issue-type: pull-request
@@ -24,11 +24,11 @@ jobs:
       - name: "Checkout commit"
         uses: actions/checkout@v2
       - name: "Run tests"
-        uses: cloudposse/actions/github/slash-command-dispatch@0.22.0
+        uses: ugns/actions/github/slash-command-dispatch@1.0.0
         with:
           token: ${{ secrets.PUBLIC_REPO_ACCESS_TOKEN }}
           reaction-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: cloudposse/actions
+          repository: ugns/actions
           commands: test
           permission: triage
           issue-type: pull-request

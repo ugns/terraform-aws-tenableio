@@ -4,22 +4,22 @@
 # Order is important: the last matching pattern has the highest precedence
 
 # These owners will be the default owners for everything
-*             @UGNS/engineering @UGNS/contributors
+*             @ugns/engineering @ugns/contributors
 
-# UnderGrid Network Services must review any changes to Makefiles
-**/Makefile   @UGNS/engineering
-**/Makefile.* @UGNS/engineering
+# Cloud Posse must review any changes to Makefiles
+**/Makefile   @ugns/engineering
+**/Makefile.* @ugns/engineering
 
-# UnderGrid Network Services must review any changes to GitHub actions
-.github/*     @UGNS/engineering
+# Cloud Posse must review any changes to GitHub actions
+.github/*     @ugns/engineering
 
-# UnderGrid Network Services must review any changes to standard context definition,
+# Cloud Posse must review any changes to standard context definition,
 # but some changes can be rubber-stamped.
-**/*.tf       @UGNS/engineering @UGNS/contributors @UGNS/approvers
-README.yaml   @UGNS/engineering @UGNS/contributors @UGNS/approvers
-README.md     @UGNS/engineering @UGNS/contributors @UGNS/approvers
-docs/*.md     @UGNS/engineering @UGNS/contributors @UGNS/approvers
+**/*.tf       @ugns/engineering @ugns/contributors @ugns/approvers
+README.yaml   @ugns/engineering @ugns/contributors @ugns/approvers
+README.md     @ugns/engineering @ugns/contributors @ugns/approvers
+docs/*.md     @ugns/engineering @ugns/contributors @ugns/approvers
 
-# UnderGrid Network Services Admins must review all changes to CODEOWNERS or the mergify configuration
-.github/mergify.yml @UGNS/admins
-.github/CODEOWNERS  @UGNS/admins
+# Cloud Posse Admins must review all changes to CODEOWNERS or the mergify configuration
+.github/mergify.yml @ugns/admins
+.github/CODEOWNERS  @ugns/admins

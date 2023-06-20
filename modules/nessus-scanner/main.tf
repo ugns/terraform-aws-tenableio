@@ -1,6 +1,6 @@
 module "nessus_scanner" {
   source   = "terraform-aws-modules/ec2-instance/aws"
-  version  = "3.3.0"
+  version  = "3.6.0"
   for_each = toset(var.subnet_ids)
 
   name = format("%s %s", coalesce(var.nessus_scanner_name, var.name), local.license_type[var.license_type])

@@ -1,6 +1,6 @@
 module "byol_security_group" {
   source  = "terraform-aws-modules/security-group/aws"
-  version = "4.7.0"
+  version = "5.1.2"
   count   = var.license_type == "byol" ? 1 : 0
 
   name        = format("%s %s", coalesce(var.nessus_scanner_name, var.name), local.license_type[var.license_type])
@@ -23,7 +23,7 @@ module "byol_security_group" {
 
 module "preauth_security_group" {
   source  = "terraform-aws-modules/security-group/aws"
-  version = "4.7.0"
+  version = "5.1.2"
   count   = var.license_type == "preauth" ? 1 : 0
 
   name        = format("%s %s", coalesce(var.nessus_scanner_name, var.name), local.license_type[var.license_type])
@@ -35,7 +35,7 @@ module "preauth_security_group" {
 
 module "preauth_target_security_group" {
   source  = "terraform-aws-modules/security-group/aws"
-  version = "4.7.0"
+  version = "5.1.2"
   count   = var.license_type == "preauth" ? 1 : 0
 
   name        = format("%s Target Security Group", coalesce(var.nessus_scanner_name, var.name))
